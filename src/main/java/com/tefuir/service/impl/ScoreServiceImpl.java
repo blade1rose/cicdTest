@@ -23,7 +23,6 @@ public class ScoreServiceImpl implements IScoreService {
     private final ExamMapper examMapper;
     private final StudentMapper studentMapper;
 
-   //查询
     @Override
     public List<StudentExamScoreVO> getStudentExamScores() {
         List<Student> studentList = studentMapper.selectList(null); //无条件的select查询

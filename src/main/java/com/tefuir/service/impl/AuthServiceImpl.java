@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthServiceImpl implements IAuthService {
     private final UserMapper userMapper;
-    //登录校验
     public boolean validateCredentials(String account, String inputPassword){
         String storedPassword = userMapper.selectPasswordByAccount(account);
         if(storedPassword == null){

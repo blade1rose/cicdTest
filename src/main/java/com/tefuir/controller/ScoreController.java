@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScoreController {
     private final IScoreService scoreService;
-
+    /*查询分数*/
     @GetMapping("/score")
     public ResponseEntity<List<StudentExamScoreVO>> getStudentExamScores() {
         List<StudentExamScoreVO> scores = scoreService.getStudentExamScores();
