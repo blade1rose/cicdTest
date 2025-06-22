@@ -16,6 +16,7 @@ import java.util.Collections;
 public class AuthController {
     private final IAuthService authService;
 
+    //登录校验
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserDTO userDTO){
         boolean isValid = authService.validateCredentials(userDTO.getAccount(), userDTO.getPassword());
