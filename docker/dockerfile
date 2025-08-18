@@ -1,7 +1,4 @@
 FROM openjdk:17
-EXPOSE 8080
-
-WORKDIR /root
-
-ADD jarfile/login*.jar /root/app.jar
-ENTRYPOINT ["java","-jar","/root/app.jar"]
+COPY mytest.jar /usr//local
+WORKDIR /usr/local
+CMD java -jar mytest.jar
