@@ -1,36 +1,35 @@
 pipeline {
     agent any
-
-    stages {
-        stage('master拉取代码') {
-            steps {
-
-                echo '拉取代码完成'
-
-            }
-
-        }
-        stage('执行构建') {
-            steps {
-                echo '执行构建完成'
-
-
-            }
-
-        }
+    
+    environment {
+        key = 'value'
     }
 
-    post {
-
-        always {
-
-            echo "完成"
-
+    stages {
+        stage('拉取git仓库代码') {
+            steps {
+                echo '拉取git仓库代码 - SUCCESS'
+            }
         }
-
-        failure {
-
-            echo "失败"
+        stage('通过Maven构建项目') {
+            steps {
+                echo '通过Maven构建项目 - SUCCESS'
+            }
+        }
+        stage('通过docker制作自定义镜像') {
+            steps {
+                echo '通过docker制作自定义镜像 - SUCCESS'
+            }
+        }
+        stage('将自定义镜像推送到Harbor') {
+            steps {
+                echo '将自定义镜推送到Harbor - SUCCESS'
+            }
+        }
+        stage('通过Publish Over SSH通知目标服务器') {
+            steps {
+                echo '通过Publish Over SSH通知目标服务器 - SUCCESS'
+            }
         }
     }
 }
