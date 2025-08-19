@@ -16,7 +16,7 @@ pipeline {
         }
         stage('通过Maven构建项目') {
             steps {
-                sh '/usr/local/maven/bin/mvn clean package-DskipTests'
+                sh '/usr/local/maven/bin/mvn clean package -DskipTests'
             }
         }
         stage('通过docker制作自定义镜像') {
