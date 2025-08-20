@@ -19,7 +19,7 @@ spec:
         - name: harbor-secret
       containers:
         - name: pipeline
-          image: 192.168.157.136:80/repo/pipeline:v3.0.0
+          image: 192.168.157.136:80/repo/pipeline:v5.0.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
