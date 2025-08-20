@@ -52,7 +52,7 @@ usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
         }
         failure {
             dingtalk (
-                root: 'Jenkins-DingDing',
+                robot: 'Jenkins-DingDing',
                 type: 'MARKDOWN',
                 title: "success: ${JOB_NAME}",
                 text: ["- 构建失败: ${JOB_NAME}! \n- 版本: ${tag} \n- 持续时间: ${currentBuild.durationString}"]
