@@ -32,6 +32,11 @@ docker tag ${JOB_NAME}:${tag} ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}
 docker push ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}'''
             }
         }
+        stage('远程执行k8s-master的kubectl命令') {
+            steps {
+                sh 'ssh root@192.168.157.143 kubectl apply -f pipeline.yml'
+            }
+        }
         stage('将yml文件传到k8s-master上') {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'k8s', 
