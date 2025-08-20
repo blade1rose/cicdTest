@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('拉取git仓库代码') {
             steps {
-                checkout scmGit(branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/blade1rose/cicdTest.git']])
+                checkout([$class: 'GitSCM', branches: [[name: "refs/tags/${tag}"]], userRemoteConfigs: [[url: 'https://github.com/blade1rose/cicdTest.git']]
             }
         }
         stage('通过Maven构建项目') {
