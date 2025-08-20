@@ -32,16 +32,16 @@ docker tag ${JOB_NAME}:${tag} ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}
 docker push ${harborAddress}/${harborRepo}/${JOB_NAME}:${tag}'''
             }
         }
-        stage('远程执行k8s-master的kubectl命令') {
-            steps {
-                sh 'ssh root@192.168.157.143 kubectl apply -f /usr/local/k8s/pipeline.yml'
-            }
-        }
         stage('将yml文件传到k8s-master上') {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'k8s', 
 transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'pipeline.yml')], 
 usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            }
+        }
+        stage('远程执行k8s-master的kubectl命令') {
+            steps {
+                sh 'ssh root@192.168.157.143 kubectl apply -f /usr/local/k8s/pipeline.yml'
             }
         }
     }
