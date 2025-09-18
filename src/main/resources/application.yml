@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 # Prometheus springboot监控配置
 management:
-  endpoint:
+  endpoints:
     web:
       exposure:
         include: '*'
@@ -21,3 +21,4 @@ management:
 logging:
   level:
     root: info
+
