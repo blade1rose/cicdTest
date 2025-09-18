@@ -14,6 +14,11 @@ spec:
     metadata:
       labels:
         app: pipeline
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
+    
     spec:
       imagePullSecrets:
         - name: harbor-secret
