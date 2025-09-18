@@ -4,6 +4,19 @@ spring:
     username: root
     password: z.336612
     driver-class-name: com.mysql.cj.jdbc.Driver
+# Prometheus springboot监控配置
+management:
+  endpoint:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
 
 logging:
   level:
